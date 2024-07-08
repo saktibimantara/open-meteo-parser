@@ -45,11 +45,20 @@ func TestParser_GetOpenWeatherForecast(t *testing.T) {
 
 			aq, err := p.GetOpenWeatherAQI(tt.args.latitude, tt.args.longitude, tt.args.startTime)
 
-			t.Log(wc)
-			t.Log(aq)
-
 			if err != nil {
 				t.Error(err)
+				t.Fail()
+				return
+			}
+
+			if wc == nil {
+				t.Error("Weather code is nil")
+				t.Fail()
+				return
+			}
+
+			if aq == nil {
+				t.Error("AQI is nil")
 				t.Fail()
 				return
 			}
