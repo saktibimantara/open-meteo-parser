@@ -1,4 +1,4 @@
-module github.com/saktibimantara/go-open-meteo-parser
+module github.com/saktibimantara/open-meteo-parser
 
 go 1.21.0
 
