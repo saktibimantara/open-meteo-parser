@@ -23,9 +23,9 @@ func NewParser(apiKey, cloudfrontURL string) *Parser {
 	}
 }
 
-type IParser interface {
+type IOpenMeteoParser interface {
 	GetOpenWeatherForecast(latitude, longitude float64, startTime time.Time) (*Forecast, error)
-	GetOpenWeatherAQI(latitude, longitude float64, startTime time.Time)
+	GetOpenWeatherAQI(latitude, longitude float64, startTime time.Time) (*AQI, error)
 }
 
 func (p Parser) GetOpenWeatherForecast(latitude, longitude float64, startTime time.Time) (*Forecast, error) {
