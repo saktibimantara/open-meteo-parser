@@ -184,7 +184,7 @@ func ParseToForecast(forecast pom.NearestForecast) *Forecast {
 	var windDeg *int
 	var windGust *float64
 	var rain *float64
-	var isDay *int
+	var isDay *float64
 
 	if forecast.Minutely15Forecast != nil {
 		dt = &forecast.Minutely15Forecast.Time.Time
@@ -262,7 +262,7 @@ func ParseToForecast(forecast pom.NearestForecast) *Forecast {
 		}
 
 		if id := forecast.HourlyForecast.IsDay; id != nil {
-			isDay = new(int)
+			isDay = new(float64)
 			*isDay = *id
 		}
 
@@ -325,7 +325,7 @@ func ParseToForecast(forecast pom.NearestForecast) *Forecast {
 
 }
 
-func safeWeather(w *Weather, isDay *int) Weather {
+func safeWeather(w *Weather, isDay *float64) Weather {
 	if w == nil {
 		return Weather{
 			ID:          800,
